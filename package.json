@@ -1,0 +1,16 @@
+{
+  "name": "studiomofo",
+  "version": "0.1.0",
+  "description": "Help a MoFo out",
+  "dependencies": {
+    "express": "latest",
+    "handlebars": "latest",
+    "consolidate": "latest",
+    "newrelic": "0.11.7"
+  // },
+  // "repository": {
+  //   "url": "https://github.com/mmmavis/studiomofo.git"
+  },"engines": {
+    "node": "0.10.x"
+  }
+}

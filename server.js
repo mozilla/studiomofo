@@ -5,6 +5,8 @@ var http = require("http");
 var fs = require('fs');
 var path = require('path');
 var xml2js = require("xml2js");
+var nodemailer = require("nodemailer");
+var mail = nodemailer.mail;
 
 var app = express();
 
@@ -32,9 +34,16 @@ fs.readdirSync(viewdir).forEach(function(filename){
 
 
 app.get('/', function(req, res){
-  // res.send('Hello World');
   res.render("index");
 });
+
+app.post("/requestForm", function(req, res){
+    console.log("======= requestForm ========");
+    console.log(req.body);
+    res.send("YEAH! SENT!");
+});
+
+
 
 app.listen(process.env.PORT, function() {
     console.log("Listening on " + process.env.PORT);

@@ -6,10 +6,7 @@
     "express": "latest",
     "handlebars": "latest",
     "consolidate": "latest",
-    "newrelic": "0.11.7"
-  // },
-  // "repository": {
-  //   "url": "https://github.com/mmmavis/studiomofo.git"
+    "nodemailer": "latest"
   },"engines": {
     "node": "0.10.x"
   }

@@ -21,17 +21,18 @@ body{
   position: relative;
 }
 
+#logo-text{
+  position: relative;
+  top: -180px;
+}
+
 #logo-banner h1{
   margin: 0 auto;
   font-family: "Playball";
   font-size: 75px;
   color: #fff;
   margin-bottom: 40px;
-}
-
-#logo-text{
-  position: relative;
-  top: -180px;
+  white-space: nowrap;
 }
 
 #form-section{
@@ -39,11 +40,15 @@ body{
   padding-bottom: 35px;
 }
 
-form > *{
+#request-form > *{
   max-width: 100%;
 }
 
-form input[type='submit']{
+#request-form .form-control{
+  margin-bottom: 5px;
+}
+
+#request-form input[type='submit']{
   margin-top: 15px;
   margin-bottom: 15px;
 }

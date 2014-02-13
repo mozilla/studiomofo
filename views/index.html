@@ -30,9 +30,13 @@
         <div id="form-section" class="row">
           <div class="col-md-4 col-md-offset-4 text-center">
             <p>Tell us what you need</p>
-            <form id="request-form" action="/requestForm" method="post">
-              <input type="text" maxlength="140" size="100" name="message"></input>
-              <textarea form="request-form" name="summary" cols="100" rows="2"></textarea>
+            <form id="request-form" action="/requestForm" method="post" role="form">
+              <label for="requester-name" class="hidden">Your Name</label>
+              <input id="requester-name" class="form-control" type="text" maxlength="50" size="100" name="name" placeholder="What's your name?"></input>
+              <label for="requester-team" class="hidden">Which team are you on?</label>
+              <input id="requester-team" class="form-control" type="text" maxlength="50" size="100" name="team" placeholder="What team are you on?"></input>
+              <label for="requester-summary" class="hidden">Summary</label>
+              <textarea id="request-summary" class="form-control" name="summary" cols="100" rows="5" maxlength="140" placeholder="Briefly describe how we can help you (140 characters or less)"></textarea>
               <input type="submit" value="SUBMIT" class="btn btn-default"></input>
             </form>
             <p>Questions? Email us anytime at <a href="mailto:studiomofo@mozillafoundation.org">studiomofo@mozillafoundation.org</a></p>

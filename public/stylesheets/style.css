@@ -1,0 +1,67 @@
+body{
+  background: #666;
+  color: #222;
+  font-family: "Open Sans Light";
+}
+
+.row{
+  margin: 35px 0;
+}
+
+#logo-banner{
+  height: 250px;
+}
+
+#logo-banner .circle{
+  background: #555;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#logo-banner h1{
+  margin: 0 auto;
+  font-family: "Playball";
+  font-size: 75px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+#logo-text{
+  position: relative;
+  top: -180px;
+}
+
+#form-section{
+  border-bottom: 1px solid #fff;
+  padding-bottom: 35px;
+}
+
+form > *{
+  max-width: 100%;
+}
+
+form input[type='submit']{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#who-are-we{
+  text-transform: uppercase;
+}
+
+#who-are-we .avatar{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #ccc;
+  margin: 20px auto;
+}
+
+#who-are-we .title{
+  text-transform: none;
+  font-style: italic;
+  margin-top: -10px;
+}

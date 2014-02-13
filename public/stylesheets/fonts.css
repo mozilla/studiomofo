@@ -18,3 +18,10 @@
   font-weight: 400;
   src: url('/fonts/OpenSans-Light.ttf') format('truetype')
 }
+
+@font-face {
+  font-family: 'Playball';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Playball-Regular.ttf') format('truetype')
+}

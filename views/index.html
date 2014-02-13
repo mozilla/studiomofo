@@ -1,35 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel='stylesheet' href='/stylesheets/OpenSans.css' />
-    <style>
-      body{
-        background: #000;
-        color: #fff;
-        font-family: "Open Sans Light";
-      }
-      .wrapper{
-        margin: 0 auto;
-        width: 800px;
-      }
-      textarea{
-        max-width: 100%;
-      }
-    </style>
+    <title>Studio MoFo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/fonts.css' />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>STUDIO MOFO</h1>
-        <h2>HELP A MOFO OUT</h2>
-        <form id="request-form" action="/requestForm" method="post">
-          <input type="text" maxlength="140" size="100" name="message"></input>
-          <textarea form="request-form" name="summary" cols="100" rows="2"></textarea>
-          <input type="submit" value="Send Request"></input>
-        </form>
-      </header>
+    <div class="container">
+
+      <div class="row">
+        <header id="logo-banner" class="text-center col-md-4 col-md-offset-4">
+          <div class="circle"></div>
+          <div id="logo-text">
+            <h1>Help a <br/> Mofo Out</h1>
+            DRAFT &#8226; DESIGN &#8226; DEVELOP
+          </div>
+        </header>
+      </div>
+
       <main>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <p>We help plan and produce websites, apps, graphics and copy for the Mozilla Foundation.</p>
+          </div>
+        </div>
+        <div id="form-section" class="row">
+          <div class="col-md-4 col-md-offset-4 text-center">
+            <p>Tell us what you need</p>
+            <form id="request-form" action="/requestForm" method="post">
+              <input type="text" maxlength="140" size="100" name="message"></input>
+              <textarea form="request-form" name="summary" cols="100" rows="2"></textarea>
+              <input type="submit" value="SUBMIT" class="btn btn-default"></input>
+            </form>
+            <p>Questions? Email us anytime at <a href="mailto:studiomofo@mozillafoundation.org">studiomofo@mozillafoundation.org</a></p>
+          </div>
+        </div>
+        <div id="who-are-we">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+              <p><b>WHO IS STUDIO MOFO</b></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 text-center">
+              <div class="avatar"></div>
+              <p class="name">Erika Drushka</p>
+              <p class="title">Copywriter</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="avatar"></div>
+              <p class="name">Sabrina Ng</p>
+              <p class="title">Designer</p>
+            </div>
+            <div class="col-md-4 text-center">
+              <div class="avatar"></div>
+              <p class="name">Mavis Ou</p>
+              <p class="title">Developer</p>
+            </div>
+          </div>
+        </div>
       </main>
+
     </div>
+
+
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

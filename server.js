@@ -4,7 +4,6 @@ var cons = require("consolidate"); // template engine consolidation library
 var http = require("http");
 var fs = require('fs');
 var path = require('path');
-var xml2js = require("xml2js");
 var nodemailer = require("nodemailer");
 var mail = nodemailer.mail;
 

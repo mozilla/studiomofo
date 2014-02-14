@@ -43,27 +43,33 @@ app.get('/', function(req, res){
 
 app.post("/requestForm", function(req, res){
     console.log("======= requestForm ========");
-    sendRequest(req.body.name,req.body.team,req.body.summary);
-    res.send("YEAH! SENT!");
-});
+    var name = req.body.name;
+    var team = req.body.team;
+    var summary = req.body.summary;
 
-function sendRequest(name,team,summary){
+    console.log(req.body);
+
     var mailOptions = {
         from: "request@studiomofo.org <request@studiomofo.org>",
         to: "Studio MoFo <studiomofo@mozillafoundation.org>",
-        subject: "[ Request Form ] ", // Subject line
-        html: "Requester: " + name + "<br /> " + "Team: " + team + "<br />" + "Summary: " + summary
+        subject: "[ Request Form ] ",
+        text: "Requester: " + name + "\n " + "Team: " + team + "\n " + "Summary: " + summary,
+        html: "<b>Requester:</b> " + name + "<br /> "
+            + "<b>Team: </b>" + team + "<br />"
+            + "<b>Summary: </b>" + summary
     }
 
     sesTransport.sendMail(mailOptions, function(error, response){
         if(error){
             console.log(error);
+            res.render("error");
         }else{
             console.log("Message sent: " + response.message);
+            res.render("thankyou", { theName: name});
         }
-        sesTransport.close(); // shut down the connection pool, no more messages
     });
-}
+});
+
 
 
 

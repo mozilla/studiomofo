@@ -52,11 +52,8 @@ app.post("/requestForm", function(req, res){
     var mailOptions = {
         from: "request@studiomofo.org <request@studiomofo.org>",
         to: "Studio MoFo <studiomofo@mozillafoundation.org>",
-        subject: "[ Request Form ] ",
-        text: "Requester: " + name + "\n " + "Team: " + team + "\n " + "Summary: " + summary,
-        html: "<b>Requester:</b> " + name + "<br /> "
-            + "<b>Team: </b>" + team + "<br />"
-            + "<b>Summary: </b>" + summary
+        subject: "[ Request Form ]",
+        text: "Requester: " + name + "\n " + "Team: " + team + "\n " + "Summary: " + summary
     }
 
     sesTransport.sendMail(mailOptions, function(error, response){

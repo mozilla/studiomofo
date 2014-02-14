@@ -6,8 +6,8 @@ var fs = require('fs');
 var path = require('path');
 var nodemailer = require("nodemailer");
 var mail = nodemailer.mail;
-// create reusable transport method (opens pool of SMTP connections)
-var transport = nodemailer.createTransport("SES", {
+// create reusable transport method (opens pool of SES connections)
+var sesTransport = nodemailer.createTransport("SES", {
     AWSAccessKeyID: process.env.AWS_KEY_ID,
     AWSSecretKey: process.env.AWS_SECRET_KEY
 });
@@ -55,13 +55,13 @@ function sendRequest(name,team,summary){
         html: "Requester: " + name + "<br /> " + "Team: " + team + "<br />" + "Summary: " + summary
     }
 
-    smtpTransport.sendMail(mailOptions, function(error, response){
+    sesTransport.sendMail(mailOptions, function(error, response){
         if(error){
             console.log(error);
         }else{
             console.log("Message sent: " + response.message);
         }
-        smtpTransport.close(); // shut down the connection pool, no more messages
+        sesTransport.close(); // shut down the connection pool, no more messages
     });
 }
 

@@ -20,6 +20,15 @@ body{
   background-size:100px 100px;
 }
 
+/*Valentine's Day Ed*/
+a{
+  color: #F5BAD8;
+}
+
+a:hover{
+  color: #FAD9EA;
+}
+
 .row{
   margin: 35px 0;
 }
@@ -104,7 +113,7 @@ body{
 }
 
 #ribbon span{
-  color: #000;
+  color: #666;
   background: #F7D5D8;
   display: block;
   font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;

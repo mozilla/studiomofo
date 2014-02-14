@@ -6,6 +6,11 @@ var fs = require('fs');
 var path = require('path');
 var nodemailer = require("nodemailer");
 var mail = nodemailer.mail;
+// create reusable transport method (opens pool of SMTP connections)
+var transport = nodemailer.createTransport("SES", {
+    AWSAccessKeyID: process.env.AWS_KEY_ID,
+    AWSSecretKey: process.env.AWS_SECRET_KEY
+});
 
 var app = express();
 
@@ -38,9 +43,27 @@ app.get('/', function(req, res){
 
 app.post("/requestForm", function(req, res){
     console.log("======= requestForm ========");
-    console.log(req.body);
+    sendRequest(req.body.name,req.body.team,req.body.summary);
     res.send("YEAH! SENT!");
 });
+
+function sendRequest(name,team,summary){
+    var mailOptions = {
+        from: "request@studiomofo.org <request@studiomofo.org>",
+        to: "Studio MoFo <studiomofo@mozillafoundation.org>",
+        subject: "[ Request Form ] ", // Subject line
+        html: "Requester: " + name + "<br /> " + "Team: " + team + "<br />" + "Summary: " + summary
+    }
+
+    smtpTransport.sendMail(mailOptions, function(error, response){
+        if(error){
+            console.log(error);
+        }else{
+            console.log("Message sent: " + response.message);
+        }
+        smtpTransport.close(); // shut down the connection pool, no more messages
+    });
+}
 
 
 

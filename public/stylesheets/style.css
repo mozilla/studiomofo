@@ -1,32 +1,7 @@
 body{
-  /*background: #C7C7C7;*/
-  /*color: #222;*/
+  background: #C7C7C7;
+  color: #222;
   font-family: "Open Sans Light";
-  color: #fff;
-  /* background pattern credits: http://lea.verou.me/css3patterns */
-  background:
-    radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%),
-    radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%),
-    radial-gradient(circle closest-side at 40% 22%, #CC274D 45%, rgba(221,51,85,0) 46%),
-    radial-gradient(circle closest-side at 60% 22%, #CC274D 45%, rgba(221,51,85,0) 46%),
-    radial-gradient(circle closest-side at 50% 35%, #CC274D 30%, rgba(221,51,85,0) 31%),
-
-    radial-gradient(circle closest-side at 60% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
-    radial-gradient(circle closest-side at 40% 43%, #b03 26%, rgba(187,0,51,0) 27%) 50px 50px,
-    radial-gradient(circle closest-side at 40% 22%, #CC274D 45%, rgba(221,51,85,0) 46%) 50px 50px,
-    radial-gradient(circle closest-side at 60% 22%, #CC274D 45%, rgba(221,51,85,0) 46%) 50px 50px,
-    radial-gradient(circle closest-side at 50% 35%, #CC274D 30%, rgba(221,51,85,0) 31%) 50px 50px;
-  background-color:#b03;
-  background-size:100px 100px;
-}
-
-/*Valentine's Day Ed*/
-a{
-  color: #F5BAD8;
-}
-
-a:hover{
-  color: #FAD9EA;
 }
 
 .row{
@@ -38,8 +13,8 @@ a:hover{
 }
 
 #logo-banner .circle{
-  /*background: #555;*/
-  background: #FA698B;
+  background: #555;
+  /*background: #FA698B;*/
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -101,25 +76,5 @@ a:hover{
 #error-message{
   font-size: 20px;
   margin-top: 50px;
-}
-
-#ribbon{
-  overflow: hidden;
-  position: absolute;
-  left: -3em;
-  top: 2.5em;
-  -moz-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-#ribbon span{
-  color: #666;
-  background: #F7D5D8;
-  display: block;
-  font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;
-  margin: 0.05em 0;
-  padding: 0.8em 3.3em;
-  text-align: center;
-  text-decoration: none;
 }
 

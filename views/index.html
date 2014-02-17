@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <div id="ribbon"><span>Valentine's Day Edition</span></div>
     <div class="container">
       <a href="https://www.mozilla.org/" id="tabzilla">mozilla</a>
       <div class="row">
@@ -36,9 +35,11 @@
               <input id="requester-name" class="form-control" type="text" maxlength="50" size="100" name="name" placeholder="What's your name?" required></input>
               <label for="requester-team" class="hidden">Which team are you on?</label>
               <input id="requester-team" class="form-control" type="text" maxlength="50" size="100" name="team" placeholder="What team are you on?" required></input>
-              <label for="requester-summary" class="hidden">Summary</label>
+              <label for="request-deadline" class="hidden">Deadline</label>
+              <input id="request-deadline" class="form-control" type="text" name="deadline" placeholder="Deadline" required></input>
+              <label for="request-summary" class="hidden">Summary</label>
               <textarea id="request-summary" class="form-control" name="summary" cols="100" rows="5" maxlength="140" placeholder="Briefly describe how we can help you (140 characters or less)" required></textarea>
-              <input type="submit" value="SEND YOUR LOVE" class="btn btn-default"></input>
+              <input type="submit" value="Submit" class="btn btn-default"></input>
             </form>
             <p>Questions? Email us anytime at <a href="mailto:studiomofo@mozillafoundation.org">studiomofo@mozillafoundation.org</a></p>
           </div>

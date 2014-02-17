@@ -45,6 +45,7 @@ app.post("/requestForm", function(req, res){
     console.log("======= requestForm ========");
     var name = req.body.name;
     var team = req.body.team;
+    var deadline = req.body.deadline;
     var summary = req.body.summary;
 
     console.log(req.body);
@@ -56,6 +57,7 @@ app.post("/requestForm", function(req, res){
         generateTextFromHTML: true,
         html: "<b>Requester:</b> " + name + "<br /> "
             + "<b>Team: </b>" + team + "<br />"
+            + "<b>Deadline: </b>" + deadline + "<br />"
             + "<b>Summary: </b>" + summary
     };
 

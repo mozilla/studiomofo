@@ -1,5 +1,5 @@
 body{
-  background: #C7C7C7;
+  background: #E8F3F8;
   color: #222;
   font-family: "Open Sans Light";
 }
@@ -13,8 +13,7 @@ body{
 }
 
 #logo-banner .circle{
-  background: #555;
-  /*background: #FA698B;*/
+  background: #fff;
   border-radius: 50%;
   width: 200px;
   height: 200px;
@@ -31,7 +30,7 @@ body{
   margin: 0 auto;
   font-family: "Playball";
   font-size: 75px;
-  color: #fff;
+  color: #81A8B8;
   margin-bottom: 40px;
   white-space: nowrap;
 }

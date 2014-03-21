@@ -52,11 +52,12 @@ app.post("/requestForm", function(req, res){
 
 function sendRequest(req, res, requestCount){
     console.log("======= requestForm ========");
+    requestCount++; // new request, increase counter by 1
+
     var name = req.body.name;
     var team = req.body.team;
     var deadline = req.body.deadline;
     var summary = req.body.summary;
-
     console.log(req.body);
 
     var mailOptions = {
@@ -83,7 +84,6 @@ function sendRequest(req, res, requestCount){
 }
 
 function setRequestCounter(requestCount){
-    requestCount++;
     fs.writeFile(counterFile, requestCount, function(err) {
         if(err) {
             console.log(err);

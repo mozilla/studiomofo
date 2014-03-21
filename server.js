@@ -103,7 +103,10 @@ function setRequestCounter(requestCount){
 
 function getRequestCounter(callback){
     fs.readFile(counterFile, "utf8", function (err, data) {
-      if (err) throw err;
+      if (err) {
+        data = 0;
+        console.log(err);
+      }
       var requestCount = parseInt(data);
       callback(requestCount);
     });

@@ -1,6 +1,6 @@
 {
   "name": "studiomofo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Help a MoFo out",
   "dependencies": {
     "express": "latest",

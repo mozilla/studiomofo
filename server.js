@@ -1,3 +1,4 @@
+var version = require('./package').version;
 var express = require("express");
 var handlebars = require("handlebars");
 var cons = require("consolidate"); // template engine consolidation library
@@ -11,12 +12,9 @@ var sesTransport = nodemailer.createTransport("SES", {
     AWSAccessKeyID: process.env.AWS_KEY_ID,
     AWSSecretKey: process.env.AWS_SECRET_KEY
 });
-
 var app = express();
-
 // using a simple text file to store counter
 var counterFile = "counter.txt";
-
 
 app.configure(function(){
     app.set("view engine", "html");
@@ -44,13 +42,24 @@ app.get('/', function(req, res){
   res.render("index");
 });
 
+app.get('/healthcheck', function(req, res) {
+  res.json({
+    http: "okay",
+    version: version
+  });
+});
+
 app.post("/requestForm", function(req, res){
+    // FIXME: check environment type, temp solution, to be fixed by checking env var
+    var host = req.get("host");
+    var onStaging = host.indexOf("staging") > -1 ? true : false;
+    // send request once counter has been fetched
     getRequestCounter(function(requestCount){
-        sendRequest(req, res, requestCount);
+        sendRequest(req, res, requestCount, onStaging);
     });
 });
 
-function sendRequest(req, res, requestCount){
+function sendRequest(req, res, requestCount, onStaging){
     console.log("======= requestForm ========");
     requestCount++; // new request, increase counter by 1
 
@@ -58,12 +67,11 @@ function sendRequest(req, res, requestCount){
     var team = req.body.team;
     var deadline = req.body.deadline;
     var summary = req.body.summary;
-    console.log(req.body);
-
+    var subjectPrefix = onStaging ? "(test on staging) " : "";
     var mailOptions = {
         from: "request@studiomofo.org <request@studiomofo.org>",
         to: "Studio MoFo <studiomofo@mozillafoundation.org>",
-        subject: "[ Request Form ] #" + requestCount + ", from " + name,
+        subject: subjectPrefix + "[ Request Form ] #" + requestCount + ", from " + name,
         generateTextFromHTML: true,
         html: "<b>Requester:</b> " + name + "<br /> "
             + "<b>Team: </b>" + team + "<br />"

@@ -1,13 +1,14 @@
 {
   "name": "studiomofo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Help a MoFo out",
   "dependencies": {
     "express": "latest",
     "handlebars": "latest",
     "consolidate": "latest",
     "nodemailer": "latest"
-  },"engines": {
+  },
+  "engines": {
     "node": "0.10.x"
   }
 }

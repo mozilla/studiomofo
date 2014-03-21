@@ -14,6 +14,10 @@ var sesTransport = nodemailer.createTransport("SES", {
 
 var app = express();
 
+// using a simple text file to store counter
+var counterFile = "counter.txt";
+
+
 app.configure(function(){
     app.set("view engine", "html");
     app.set("view options", { layout: false });
@@ -36,12 +40,17 @@ fs.readdirSync(viewdir).forEach(function(filename){
     }
 });
 
-
 app.get('/', function(req, res){
   res.render("index");
 });
 
 app.post("/requestForm", function(req, res){
+    getRequestCounter(function(requestCount){
+        sendRequest(req, res, requestCount);
+    });
+});
+
+function sendRequest(req, res, requestCount){
     console.log("======= requestForm ========");
     var name = req.body.name;
     var team = req.body.team;
@@ -53,7 +62,7 @@ app.post("/requestForm", function(req, res){
     var mailOptions = {
         from: "request@studiomofo.org <request@studiomofo.org>",
         to: "Studio MoFo <studiomofo@mozillafoundation.org>",
-        subject: "[ Request Form ]",
+        subject: "[ Request Form ] #" + requestCount + ", from " + name,
         generateTextFromHTML: true,
         html: "<b>Requester:</b> " + name + "<br /> "
             + "<b>Team: </b>" + team + "<br />"
@@ -67,13 +76,30 @@ app.post("/requestForm", function(req, res){
             res.render("error");
         }else{
             console.log("Message sent: " + response.message);
+            setRequestCounter(requestCount);
             res.render("thankyou", { theName: name});
         }
     });
-});
+}
 
+function setRequestCounter(requestCount){
+    requestCount++;
+    fs.writeFile(counterFile, requestCount, function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log(requestCount + " has been saved on " + counterFile);
+        }
+    });
+}
 
-
+function getRequestCounter(callback){
+    fs.readFile(counterFile, "utf8", function (err, data) {
+      if (err) throw err;
+      var requestCount = parseInt(data);
+      callback(requestCount);
+    });
+}
 
 app.listen(process.env.PORT, function() {
     console.log("Listening on " + process.env.PORT);

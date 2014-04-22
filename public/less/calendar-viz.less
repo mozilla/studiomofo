@@ -1,0 +1,157 @@
+/* Viz section ================= */
+
+#viz-section {
+  background: #009984;
+  color: #FFF;
+  font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 150px;
+
+  #left-container {
+    float: left;
+    width: 25%;
+  }
+
+  #right-container {
+    float: left;
+    width: 75%;
+
+    #calendar-viz-tier {
+      float: left;
+      width: 5%;
+      width: ~"calc(20px - 0px)";
+    }
+
+    #calendar-viz {
+      float: left;
+      width: 95%;
+      width: ~"calc(100% - 20px)";
+    }
+  }
+
+  @media( max-width: @screen-sm-max ){
+    #left-container {
+      float: left;
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    #right-container {
+      float: left;
+      width: 100%;
+      #viz-container {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      #calendar-viz {
+        thead th:not(.event-name),
+        tbody td:not(.event-name) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  /* Viz ============================= */
+
+  #calendar-viz,
+  #calendar-viz-tier {
+    border-collapse: collapse;
+    tr {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: 22px;
+    }
+    th, td {
+      text-align: center;
+    }
+  }
+
+  #calendar-viz-tier {
+    tr:hover {
+      cursor: pointer;
+    }
+    td {
+      color: #009984;
+      background: #BADB81;
+      border-bottom: 1px solid #009984;
+      font-weight: bold;
+    }
+  }
+
+  #calendar-viz {
+    tbody tr:hover {
+      background: #3EAF83;
+    }
+    tr.tier-divider {
+      border-bottom: 1px dashed #016658;
+    }
+    td.month {
+      width: 40px;
+    }
+    tbody tr.selected {
+      background: rgba(255,255,255,0.2);
+    }
+    tbody td.marked .dot {
+      background: #F9F281;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      margin: 0 auto;
+    }
+    tbody td.event-name:hover,
+    tbody td.marked .dot:hover {
+      cursor: pointer;
+    }
+    thead th.event-name,
+    tbody td.event-name {
+      text-align: left;
+      padding-left: 15px;
+    }
+  }
+
+
+  /* Description box ============================= */
+
+  #description-box {
+    border: 1px solid #FFF;
+    background: rgba(255,255,255,0.2);
+    padding: 10px 15px;
+    min-height: 350px;
+    margin-top: 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  #description-box header {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  #event-details {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  #event-details li {
+    margin-bottom: 5px;
+  }
+
+  #event-details .desc-label {
+    text-transform: capitalize;
+    font-weight: 800;
+    margin-right: 10px;
+  }
+
+  #event-details .desc-label::after {
+    content: ":";
+  };
+
+}

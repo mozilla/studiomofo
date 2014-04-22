@@ -1,14 +1,23 @@
 {
   "name": "studiomofo",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Help a MoFo out",
   "dependencies": {
-    "express": "latest",
-    "handlebars": "latest",
-    "consolidate": "latest",
-    "nodemailer": "latest"
+    "express": "3.4.8",
+    "bower": "1.2.8",
+    "habitat": "1.1.0",
+    "nodemailer": "latest",
+    "grunt": "0.4.2",
+    "grunt-contrib-jshint": "0.7.2",
+    "grunt-jsbeautifier": "0.2.6",
+    "grunt-shell": "0.6.1",
+    "grunt-contrib-less": "0.10.0",
+    "grunt-contrib-watch": "0.5.3",
+    "grunt-shell-spawn": "0.3.0",
+    "grunt-cli": "0.1.13",
+    "nunjucks": "0.1.10"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": ">=0.10"
   }
 }

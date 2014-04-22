@@ -1,5 +1,12 @@
-node_modules/*
-.env
-.DS_Store
 *.log
+logs/*
+!.gitkeep
+node_modules/
+bower_components/
+tmp
+.DS_Store
+.idea
+.env
+public/compiled/
 counter.txt
+TODO.txt

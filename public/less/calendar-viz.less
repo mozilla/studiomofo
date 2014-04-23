@@ -1,3 +1,6 @@
+@month-col-width: 60px;
+@row-height: 22px;
+
 /* Viz section ================= */
 
 #viz-section {
@@ -23,6 +26,8 @@
       float: left;
       width: 5%;
       width: ~"calc(20px - 0px)";
+      position: relative;
+      top: @row-height;
     }
 
     #calendar-viz {
@@ -61,13 +66,15 @@
 
   /* Viz ============================= */
 
-  #calendar-viz,
-  #calendar-viz-tier {
+  #calendar-viz {
     border-collapse: collapse;
     tr {
       -moz-box-sizing: border-box;
       box-sizing: border-box;
-      height: 22px;
+      height: @row-height;
+    }
+    th {
+      font-weight: normal;
     }
     th, td {
       text-align: center;
@@ -75,18 +82,48 @@
   }
 
   #calendar-viz-tier {
-    tr:hover {
+    div:hover {
       cursor: pointer;
     }
-    td {
+    .tier-header {
+      .text-center;
+      width: 20px;
       color: #009984;
-      background: #BADB81;
+      background: #FFF;
       border-bottom: 1px solid #009984;
       font-weight: bold;
     }
   }
 
   #calendar-viz {
+    position: relative;
+    top: -@row-height;
+    thead {
+      .arc {
+        .text-center;
+        float: left;
+      }
+      #mozilla-arc{
+        width: @month-col-width;
+        background: #BADB81;
+      }
+      #privacy-arc-1 {
+        width: @month-col-width;
+        background: #7FBF0F;
+      }
+      #education-arc {
+        width: @month-col-width * 6.5;
+        background: #BADB81;
+      }
+      #privacy-arc-2 {
+        width: @month-col-width * 2;
+        background: #7FBF0F;
+      }
+      #eoy-arc {
+        width: @month-col-width * 1.5;
+        background: #BADB81;
+      }
+    }
     tbody tr:hover {
       background: #3EAF83;
     }
@@ -94,10 +131,15 @@
       border-bottom: 1px dashed #016658;
     }
     td.month {
-      width: 40px;
+      width: @month-col-width;
     }
     tbody tr.selected {
       background: rgba(255,255,255,0.2);
+    }
+    thead th.event-name,
+    tbody td.event-name {
+      text-align: left;
+      padding-left: 15px;
     }
     tbody td.marked .dot {
       background: #F9F281;
@@ -110,11 +152,6 @@
     tbody td.marked .dot:hover {
       cursor: pointer;
     }
-    thead th.event-name,
-    tbody td.event-name {
-      text-align: left;
-      padding-left: 15px;
-    }
   }
 
 
@@ -125,7 +162,7 @@
     background: rgba(255,255,255,0.2);
     padding: 10px 15px;
     min-height: 350px;
-    margin-top: 22px;
+    margin-top: @row-height;
     margin-left: 20px;
     margin-right: 20px;
   }

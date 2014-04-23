@@ -15,20 +15,13 @@ $.ajax({
   },
   success: function(data){
     console.log("success");
-    console.log(data);
-    var bugTable = $("#bug-list table");
-    var bugs = data.bugs;
-
-    for ( var i=0; i<bugs.length; i++){
-      var bug = bugs[i];
-      console.log(bug.id);
-      console.log(bug.ref);
-      console.log(bug.summary);
-      console.log("===");
-      bugTable.find("tbody").append("<tr>" +
-                                      "<td><a href='https://bugzilla.mozilla.org/show_bug.cgi?id="+ bug.id +"'>" + bug.id + "</a></td>" +
-                                      "<td>" + bug.summary + "</td>" +
-                                    "</tr>");
+    for ( var i=0; i<data.bugs.length; i++){
+      var bug = data.bugs[i];
+      $("#bug-list table").find("tbody").append(
+        "<tr>" +
+          "<td><a href='https://bugzilla.mozilla.org/show_bug.cgi?id="+ bug.id +"'>" + bug.id + "</a></td>" +
+          "<td>" + bug.summary + "</td>" +
+        "</tr>");
     }
   }
 });

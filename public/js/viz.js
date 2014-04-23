@@ -25,6 +25,7 @@ var monthAbbr = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
 
 var viz = $("#calendar-viz");
 var vizTier = $("#calendar-viz-tier");
+var rowHeight = "22px";
 
 function VizEvent(gEvent) {
   // FIXME: make sure things are using the right type
@@ -48,6 +49,7 @@ $.ajax({
     console.log(jqXHR);
   },
   success: function(data) {
+    console.log("Successfully loaded Google spreadsheet data!");
     spreadsheetData = data;
     mapGData(spreadsheetData);
   },
@@ -64,11 +66,13 @@ function mapGData(data) {
     vizAllEvents.push(vizEvent);
     vizEventsByTier[vizEvent["tier"]].push( vizEvent );
   });
+  delete vizEventsByTier[0]; // FIXME: we don't care about showing Tier 0
   buildTable();
 }
 
 
 function buildTable() {
+  // build main viz
   drawHeader();
   for ( tier in vizEventsByTier ) {
     var tierGroup = vizEventsByTier[tier];
@@ -76,24 +80,28 @@ function buildTable() {
       drawRow(theEvent, tier);
     });
     viz.find("tr[data-tier="+ tier +"]:last").addClass("tier-divider");
-    drawTierLabel(tier, tierGroup); // FIXME: to be deleted
-    drawTierTable(tier, tierGroup);
   }
-  addEventHandler();
+  // build vertical header ( Tier Labels )
+  for ( tier in vizEventsByTier ) {
+    drawTierHeaders(tier);
+  }
+  // Add event handlers
+  addVizEventHandler();
+  addTierEventHandler();
 }
 
-function drawTierTable(tier,tierGroup) {
-  tierGroup.forEach(function(theEvent, i){
-    var trOpen = "<tr data-tier="+ tier +">";
-    var trClose = "</tr>";
-    if ( i == 0 ) {
-      vizTier.find("tbody").append(trOpen +
-                                      "<td class='tier-label' rowspan=" + tierGroup.length + " data-rowspan='"+ tierGroup.length +"'>" + tier + "</td>" +
-                                   trClose);
-    }else {
-      vizTier.find("tbody").append(trOpen + trClose);
-    }
-  });
+function drawTierHeaders(tier) {
+  var allRowsInTier = $("#calendar-viz tbody tr[data-tier="+ tier +"]");
+  var height = 0;
+  $.each(allRowsInTier,function(i,row){
+    height += $(row).height();
+  })
+  $("<div>"+ tier +"</div>")
+      .addClass("tier-header")
+      .attr("style", "height: " + height + "px; line-height:" + height + "px")
+      .attr("data-height", height + "px")
+      .attr("data-tier", tier)
+      .appendTo( vizTier );
 }
 
 function drawHeader() {
@@ -101,14 +109,14 @@ function drawHeader() {
   var colGroupHtml = "";
   var headerHtml = "";
   // build colGroup and headerHtml
-  colGroupHtml += "<col class='tier'></col>"
-  headerHtml = "<th>Tier</th>";
+  colGroupHtml += ""
+  headerHtml = "";
   for (var i=0; i<12; i++) {
     colGroupHtml += "<col class='month " + monthAbbr[i] + "'></col>";
     headerHtml += "<th>" + monthAbbr[i] + "</th>";
   }
-  colGroupHtml += "<col class='eventCol'></col>";
-  headerHtml += "<th class='event-name'>Event</th>";
+  colGroupHtml += "<col class='event-col'></col>";
+  headerHtml += "<th class='event-name'></th>";
   // insert to DOM
   viz.find("thead").before("<colgroup>"+ colGroupHtml + "</colgroup>")
                    .append("<tr>"+ headerHtml + "</tr>");
@@ -133,30 +141,29 @@ function drawRow(theEvent, tier) {
                                   "</tr>");
 }
 
-function drawTierLabel(tier,tierGroup) {
-  viz.find("tr[data-tier="+ tier +"]").prepend("<td class='tierLabel'>"+tier+"</td>");
-}
-
 
 
 // ==================
 
-function addEventHandler() {
+function addVizEventHandler() {
   // show Event description
   viz.find("tbody").find(".dot, .event-name").click(showDetails);
-  // toggle each Tier section
-  vizTier.find("td").click(toggleTier);
 }
+
+function addTierEventHandler() {
+  // toggle each Tier section
+  vizTier.find("div.tier-header").click(toggleTier);
+}
+
 
 // Show Event description click handler
 function showDetails(event) {
-  $("#description-box #event-details").html("");
   viz.find("tr[data-id].selected").removeClass("selected");
   // get currently selected Event
   var id = $(this).parents("tr[data-id]").addClass("selected").attr("data-id");
   var selected = vizAllEvents[(id-1)];
   // update content
-  $("#event-title").text(selected.eventName);
+  var newContent = "";
   for( key in selected ) {
     var listItem = "";
     if ( key == "channel") {
@@ -171,23 +178,39 @@ function showDetails(event) {
                    "<b class='desc-label'>" + key + "</b>" + selected[key] +
                   "</li>";
     }
-    $("#event-details").append(listItem);
+    newContent += listItem;
   }
+
+  $("#event-title").text(selected.eventName);
+  $("#event-details").fadeOut(500,function() {
+    $(this).html(newContent);
+  }).fadeIn(800);
 }
 
 // Toggle Tier click handler
 function toggleTier(event) {
-  var tier = $(event.target).parents("tr[data-tier]").attr("data-tier");
+  var tier = $(event.target).attr("data-tier");
   // main viz
   viz.find("tr[data-tier="+ tier +"]:not(:last)").toggle();
   viz.find("tr[data-tier="+ tier +"]:last *").toggle();
-  // tier table viz ("vertical header")
-  var tierLabelRow = vizTier.find("tr[data-tier="+ tier +"]:first").toggleClass("collapsed");
-  var actualRowSpan = tierLabelRow.find("td").attr("data-rowspan");
-  vizTier.find("tr[data-tier="+ tier +"]:not(:first)").toggle();
-  if ( tierLabelRow.hasClass("collapsed") ) {
-    tierLabelRow.find("td").attr("rowspan", 1);
+  // tier viz ("vertical header")
+  var tierHeader = vizTier.find("div[data-tier="+ tier +"]");
+  var height = tierHeader.attr("data-height");
+  tierHeader.toggleClass("collapsed");
+  if ( tierHeader.hasClass("collapsed") ) {
+    tierHeader.css({"height": rowHeight, "line-height": rowHeight});
   }else {
-    tierLabelRow.find("td").attr("rowspan", actualRowSpan);
+    tierHeader.css({"height": height, "line-height": height});
   }
 }
+
+
+// Redraw vertical header if Window has been resized
+$(window).resize(function() {
+  vizTier.html(""); // reset
+  for ( tier in vizEventsByTier ) {
+    drawTierHeaders(tier);
+  }
+  addTierEventHandler();
+});
+

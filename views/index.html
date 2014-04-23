@@ -19,17 +19,17 @@
           <p>Tell us what you need.</p>
           <form id="request-form" action="/requestForm" method="post" role="form">
             <label for="requester-name" class="hidden">Your Name</label>
-            <input id="requester-name" class="form-control" type="text" maxlength="50" size="100" name="name" placeholder="What's your name?" required></input>
+            <input id="requester-name" class="form-control" type="text" maxlength="50" size="100" name="name" placeholder="What's your name?" required />
             <label for="requester-team" class="hidden">Which team are you on?</label>
-            <input id="requester-team" class="form-control" type="text" maxlength="50" size="100" name="team" placeholder="What team are you on?" required></input>
+            <input id="requester-team" class="form-control" type="text" maxlength="50" size="100" name="team" placeholder="What team are you on?" required />
             <label for="request-deadline" class="hidden">Deadline</label>
-            <input id="request-deadline" class="form-control" type="text" name="deadline" placeholder="Deadline: Date & Reason" required></input>
+            <input id="request-deadline" class="form-control" type="text" name="deadline" placeholder="Deadline: Date & Reason" required>
             <label for="request-summary" class="hidden">Summary</label>
             <textarea id="request-summary" class="form-control" name="summary" cols="100" rows="5" maxlength="140" placeholder="Briefly describe how we can help you (140 characters or less)" required></textarea>
             <div id="new-tweet">
-              <input type="checkbox"></input><i class="fa fa-twitter"></i>Does this need a tweet from <a href="https://twitter.com/mozilla">@Mozilla</a>?
+              <input type="checkbox" /><i class="fa fa-twitter"></i>Does this need a tweet from <a href="https://twitter.com/mozilla">@Mozilla</a>?
             </div>
-            <input type="submit" value="Submit" class="btn btn-default"></input>
+            <input type="submit" value="Submit" class="btn btn-default" />
           </form>
           <p>Questions? Email us anytime at <a href="mailto:studiomofo@mozillafoundation.org">studiomofo@mozillafoundation.org</a></p>
         </div>
@@ -103,7 +103,7 @@
               </tr>
             </thead>
             <tbody>
-            </thead>
+            </tbody>
           </table>
         </div>
       </div>
@@ -124,17 +124,17 @@
       </div>
       <div class="row">
         <div class="col-md-4 text-center">
-          <div class="avatar"><img src="/img/erika.jpg"></div>
+          <div class="avatar"><img src="/img/erika.jpg" alt="Photo of Erika Drushka"></div>
           <p class="name">Erika Drushka</p>
           <p class="title">Copywriter</p>
         </div>
         <div class="col-md-4 text-center">
-          <div class="avatar"><img src="/img/sabrina.jpg"></div>
+          <div class="avatar"><img src="/img/sabrina.jpg" alt="Photo of Sabrina Ng"></div>
           <p class="name">Sabrina Ng</p>
           <p class="title">Designer</p>
         </div>
         <div class="col-md-4 text-center">
-          <div class="avatar"><img src="/img/mavis.jpg"></div>
+          <div class="avatar"><img src="/img/mavis.jpg" alt="Photo of Mavis Ou"></div>
           <p class="name">Mavis Ou</p>
           <p class="title">Developer</p>
         </div>
@@ -153,15 +153,19 @@
       </div>
       <div id="right-container">
         <div id="viz-container">
-          <table id="calendar-viz-tier">
-            <thead>
-              <tr><th></th></tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+          <div id="calendar-viz-tier">
+          </div>
           <table id="calendar-viz">
             <thead>
+              <tr>
+                <th colspan="13">
+                  <div id="mozilla-arc" class="arc">Mozilla</div>
+                  <div id="privacy-arc-1" class="arc">Privacy</div>
+                  <div id="education-arc" class="arc">Education</div>
+                  <div id="privacy-arc-2" class="arc">Privacy</div>
+                  <div id="eoy-arc" class="arc">EOY</div>
+                </th>
+              </tr>
             </thead>
             <tbody>
             </tbody>

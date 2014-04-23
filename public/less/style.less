@@ -22,6 +22,14 @@ body{
   margin: 35px 0;
 }
 
+.big-section {
+  h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+}
+
 #logo-banner{
   height: 250px;
 }
@@ -51,9 +59,13 @@ body{
   top: -180px;
 }
 
-#form-section {
+.big-section:not(#viz-section) {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.big-section-divider {
   border-bottom: 1px solid #fff;
-  padding-bottom: 35px;
 }
 
 #request-form {
@@ -61,9 +73,19 @@ body{
     margin-bottom: 5px;
   }
 
-  input[type='submit'] {
-    margin-top: 15px;
-    margin-bottom: 15px;
+  #new-tweet {
+    text-align: left;
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    i {
+      margin-right: 5px;
+      color: #55ACEE;
+    }
+  }
+
+  input[type="submit"] {
+    margin-top: 50px;
   }
 }
 

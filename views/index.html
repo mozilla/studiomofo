@@ -2,39 +2,99 @@
 
 {% block bodyOpen %}<body class="home">{% endblock %}
 {% block mainContent %}
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-center">
-        <p>We help plan communications, websites, graphics, and other engagement projects for the Mozilla Foundation.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div id="form-section" class="row">
-      <div class="col-md-4 col-md-offset-4 text-center">
-        <p>Tell us what you need.</p>
-        <form id="request-form" action="/requestForm" method="post" role="form">
-          <label for="requester-name" class="hidden">Your Name</label>
-          <input id="requester-name" class="form-control" type="text" maxlength="50" size="100" name="name" placeholder="What's your name?" required></input>
-          <label for="requester-team" class="hidden">Which team are you on?</label>
-          <input id="requester-team" class="form-control" type="text" maxlength="50" size="100" name="team" placeholder="What team are you on?" required></input>
-          <label for="request-deadline" class="hidden">Deadline</label>
-          <input id="request-deadline" class="form-control" type="text" name="deadline" placeholder="Deadline: Date & Reason" required></input>
-          <label for="request-summary" class="hidden">Summary</label>
-          <textarea id="request-summary" class="form-control" name="summary" cols="100" rows="5" maxlength="140" placeholder="Briefly describe how we can help you (140 characters or less)" required></textarea>
-          <input type="submit" value="Submit" class="btn btn-default"></input>
-        </form>
-        <p>Questions? Email us anytime at <a href="mailto:studiomofo@mozillafoundation.org">studiomofo@mozillafoundation.org</a></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div id="who-are-we">
+  <div class="big-section">
+    <div class="container">
       <div class="row">
         <div class="col-md-4 col-md-offset-4 text-center">
-          <p><b>WHO IS STUDIO MOFO</b></p>
+          <p>We help plan communications, websites, graphics, and other engagement projects for the Mozilla Foundation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="form-section" class="big-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <p>Tell us what you need.</p>
+          <form id="request-form" action="/requestForm" method="post" role="form">
+            <label for="requester-name" class="hidden">Your Name</label>
+            <input id="requester-name" class="form-control" type="text" maxlength="50" size="100" name="name" placeholder="What's your name?" required></input>
+            <label for="requester-team" class="hidden">Which team are you on?</label>
+            <input id="requester-team" class="form-control" type="text" maxlength="50" size="100" name="team" placeholder="What team are you on?" required></input>
+            <label for="request-deadline" class="hidden">Deadline</label>
+            <input id="request-deadline" class="form-control" type="text" name="deadline" placeholder="Deadline: Date & Reason" required></input>
+            <label for="request-summary" class="hidden">Summary</label>
+            <textarea id="request-summary" class="form-control" name="summary" cols="100" rows="5" maxlength="140" placeholder="Briefly describe how we can help you (140 characters or less)" required></textarea>
+            <div id="new-tweet">
+              <input type="checkbox"></input><i class="fa fa-twitter"></i>Does this need a tweet from <a href="https://twitter.com/mozilla">@Mozilla</a>?
+            </div>
+            <input type="submit" value="Submit" class="btn btn-default"></input>
+          </form>
+          <p>Questions? Email us anytime at <a href="mailto:studiomofo@mozillafoundation.org">studiomofo@mozillafoundation.org</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="big-section-divider">
+    </div>
+  </div>
+
+  <div class="big-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <h5>Resources</h5>
+          <p>
+            <a href="https://wiki.mozilla.org/Encyclopedia_Bestpractica">Encyclopedia Bestpractica</a>
+          </p>
+          <p>
+            A comprehensive guide to the Mozilla Foundation's best practices for communications and engagement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="big-section-divider">
+    </div>
+  </div>
+
+  <div class="big-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <h5>= FIXME = explanation of our process</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-3 text-center">
+          <p>
+            <a href="https://mofocomms.etherpad.mozilla.org/ProjectProcess">= FIXME = ProjectProcess</a>
+          </p>
+        </div>
+        <div class="col-md-3 text-center">
+          <p>
+            <a href="https://mofocomms.etherpad.mozilla.org/ProjectProcessTemplate">= FIXME = ProjectProcessTemplate</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="big-section-divider">
+    </div>
+  </div>
+
+  <div id="who-are-we" class="big-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <h5>Who is Studio MoFo</h5>
         </div>
       </div>
       <div class="row">
@@ -57,7 +117,7 @@
     </div>
   </div>
 
-  <div id="viz-section">
+  <div id="viz-section" class="big-section">
     <div class="row">
       <div id="left-container">
         <div id="description-box">

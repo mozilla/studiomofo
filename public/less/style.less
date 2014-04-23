@@ -12,8 +12,10 @@
 @import "calendar-viz";
 
 
+@body-blue: #E8F3F8;
+
 body{
-  background: #E8F3F8;
+  background: @body-blue;
   color: #222;
   font-family: "Open Sans Light";
 }
@@ -86,6 +88,7 @@ body{
 
   input[type="submit"] {
     margin-top: 50px;
+    margin-bottom: 15px;
   }
 }
 
@@ -93,6 +96,28 @@ body{
   max-width: 100%;
 }
 
+#bug-list {
+  table {
+    width: 100%;
+    th, td {
+      padding: 2px 5px;
+    }
+    th {
+      background: #81a8b9;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    th:nth-child(1) {
+      width: 80px;
+    }
+    tbody {
+      background: #FFF;
+      td {
+        border-bottom: 1px solid @body-blue;
+      }
+    }
+  }
+}
 
 #who-are-we {
   text-transform: uppercase;

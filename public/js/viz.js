@@ -7,8 +7,23 @@ var columnNames = {
   tier: colKeyPrefix + "highesttier",
   channel: colKeyPrefix + "channel",
   startDate: colKeyPrefix + "startdate",
-  endDate: colKeyPrefix + "enddate"
+  endDate: colKeyPrefix + "enddate",
+  location: colKeyPrefix + "location",
+  description: colKeyPrefix + "description",
+  relatedlinks: colKeyPrefix + "relatedlinks"
 };
+
+// shortlists and maps the corresponding fields that we want to display in the Details section
+// order matters
+var detailFields = [
+  { key: "location", fieldName: "Location" },
+  { key: "startDate", fieldName: "Start" },
+  { key: "endDate", fieldName: "End" },
+  { key: "tier", fieldName: "Tier" },
+  { key: "channel", fieldName: "Channels" },
+  { key: "description", fieldName: "Description" },
+  { key: "relatedlinks", fieldName: "Related Links" }
+];
 
 
 var sourceUrl = "http://spreadsheets.google.com/feeds/list/1M8L-O9UQC0CbRMbKtTsfyYKBqJZekkpbA9VE8CQ20cY/od6/public/values?alt=json";
@@ -25,7 +40,7 @@ var monthAbbr = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
 
 var viz = $("#calendar-viz");
 var vizTier = $("#calendar-viz-tier");
-var rowHeight = "22px";
+var rowHeight = "18px";
 
 function VizEvent(gEvent) {
   // FIXME: make sure things are using the right type
@@ -164,18 +179,34 @@ function showDetails(event) {
   var selected = vizAllEvents[(id-1)];
   // update content
   var newContent = "";
-  for( key in selected ) {
+  for ( var i=0; i<detailFields.length; i++ ) {
+    var key = detailFields[i].key;
+    var fieldName = detailFields[i].fieldName;
+    var fieldContent = selected[key];
     var listItem = "";
+
+    if ( fieldContent == "" ) {
+      continue; // skip if no content
+    }
+
     if ( key == "channel") {
-      listItem += "<li><b class='desc-label'>" + key + "</b><br />";
+      listItem = "<li><b class='desc-label'>" + fieldName + "</b><br>";
       var channels = selected[key].split(",");
-      for (var i=0; i<channels.length; i++) {
-        listItem += channels[i] + "</ br>";
+      for (var j=0; j<channels.length; j++) {
+        listItem += channels[j] + "<br>";
+      }
+      listItem += "</li>";
+    } else if ( key == "relatedlinks" ) {
+      listItem = "<li><b class='desc-label'>" + fieldName + "</b>";
+      var links = selected[key].split(",");
+      for (var j=0; j<links.length; j++) {
+        if ( j != 0 ) { listItem += "," }
+        listItem += "<a href='" + links[j] + "'>" + links[j] + "<a>";
       }
       listItem += "</li>";
     } else {
       listItem =  "<li>" +
-                   "<b class='desc-label'>" + key + "</b>" + selected[key] +
+                    "<b class='desc-label'>" + fieldName + "</b>" + fieldContent +
                   "</li>";
     }
     newContent += listItem;

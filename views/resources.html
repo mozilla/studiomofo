@@ -1,0 +1,32 @@
+{% extends "views/layout.html" %}
+
+{% block bodyOpen %}<body class="resources">{% endblock %}
+
+{% block navItems %}
+  <ul class="nav navbar-nav">
+    <li><a href="/projects">Projects</a></li>
+    <li><a href="/services">Services</a></li>
+    <li class="active"><a href="/resources">Resources</a></li>
+  </ul>
+{% endblock %}
+
+
+{% block mainContent %}
+
+  <div class="big-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 text-center">
+          <h5>Resources</h5>
+          <p>
+            <a href="https://wiki.mozilla.org/Encyclopedia_Bestpractica">Encyclopedia Bestpractica</a>
+          </p>
+          <p>
+            A comprehensive guide to the Mozilla Foundation's best practices for communications and engagement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

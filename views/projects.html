@@ -1,0 +1,53 @@
+{% extends "views/layout.html" %}
+
+{% block bodyOpen %}<body class="projects">{% endblock %}
+
+{% block navItems %}
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="/projects">Projects</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/resources">Resources</a></li>
+  </ul>
+{% endblock %}
+
+
+{% block mainContent %}
+
+  <div class="big-section" id="bug-list">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h5 class="text-center">What We Are Working On</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>SUMMARY</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="big-section-divider">
+    </div>
+  </div>
+
+
+  <div class="big-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h5 class="text-center">Past Projects</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

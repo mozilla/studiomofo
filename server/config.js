@@ -59,6 +59,18 @@ module.exports = function (env) {
     res.render("views/index.html");
   });
 
+  app.get('/projects', function(req, res){
+    res.render("views/projects.html");
+  });
+
+  app.get('/services', function(req, res){
+    res.render("views/services.html");
+  });
+
+  app.get('/resources', function(req, res){
+    res.render("views/resources.html");
+  });
+
   app.get('/healthcheck', function(req, res) {
     res.json({
       http: "okay",

@@ -9,22 +9,24 @@
 <body>
 {% endblock %}
   <nav class="navbar navbar-default navbar-no-header-xs" id="studiomofo-nav">
-    <div id="logo">
-      <a href="/"><i class="fa fa-heart f3"></i>STUDIO MOFO</a>
-    </div>
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#studiomofo-nav-list">
-        <span class="fa fa-bars fa-lg"></span>
-      </button>
-    </div>
-    <div class="navbar-collapse collapse" id="studiomofo-nav-list">
-      {% block navItems %}
-      <ul class="nav navbar-nav">
-        <li><a href="/about">About</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/resources">Resources</a></li>
-      </ul>
-      {% endblock %}
+    <div class="container">
+      <div id="logo">
+        <a href="/"><i class="fa fa-heart f3"></i>STUDIO MOFO</a>
+      </div>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#studiomofo-nav-list">
+          <span class="fa fa-bars fa-lg"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="studiomofo-nav-list">
+        {% block navItems %}
+        <ul class="nav navbar-nav">
+          <li><a href="/about">About</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/resources">Resources</a></li>
+        </ul>
+        {% endblock %}
+      </div>
     </div>
   </nav>
 

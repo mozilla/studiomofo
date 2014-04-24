@@ -1,13 +1,18 @@
 @month-col-width: 60px;
+@month-col-bg: #ECF4F5;
 @row-height: 18px;
 @dark-grey: #494F5B;
+
+@tier-1: #3F83BB;
+@tier-2: #76ADD4;
+@tier-3: #A4C9DF;
+@tier-4: #C7DAEE;
 
 /* Viz section ================= */
 
 #viz-section {
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 300;
-  font-size: 12px;
   padding-bottom: 50px;
   background: #009984;
   color: #FFF;
@@ -22,12 +27,25 @@
         font-weight: bold;
         text-transform: uppercase;
       }
+      .tier-1 {
+        color: @tier-1;
+      }
+      .tier-2 {
+        color: @tier-2;
+      }
+      .tier-3 {
+        color: @tier-3;
+      }
+      .tier-4 {
+        color: @tier-4;
+      }
     }
   }
 
   #viz {
     padding-top: 50px;
     padding-bottom: 30px;
+    font-size: 12px;
   }
 
   #left-container {

@@ -18,12 +18,26 @@
 @light-blue: #83E2E1;
 @dark-red: #EC515B;
 @light-red: #F4969C;
+@light-grey: #F5F3F4;
+@middle-grey: #7996A9;
+@dark-grey: #494F5B;
 
 
 body{
-  background: @body-blue;
-  color: #222;
+  background: #FFF;
+  color: @dark-grey;
   font-family: "Open Sans Light";
+}
+
+footer {
+  height: 100px;
+  background: @dark-grey;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 45px;
 }
 
 nav#studiomofo-nav {
@@ -31,10 +45,10 @@ nav#studiomofo-nav {
   font-size: 20px;
   color: #888;
   background: #FFF;
+  text-transform: uppercase;
+  font-weight: bold;
   #logo {
     float: left;
-    text-transform: uppercase;
-    font-weight: bold;
     padding-top: 5px;
     i {
       margin-right: 5px;
@@ -57,8 +71,15 @@ nav#studiomofo-nav {
     float: right;
   }
   #studiomofo-nav-list.in {
-    clear: none;
+    float: none;
   }
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+.navbar-default {
+  border: none;
 }
 
 .row{
@@ -71,6 +92,19 @@ nav#studiomofo-nav {
     font-weight: bold;
     margin-bottom: 25px;
   }
+  padding-bottom: 25px;
+}
+
+.big-section .header {
+  background: #FFF;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.big-section-divider {
+  border-bottom: 1px solid #fff;
 }
 
 #logo-banner{
@@ -102,42 +136,106 @@ nav#studiomofo-nav {
   top: -180px;
 }
 
-.big-section:not(#viz-section) {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.big-section-divider {
-  border-bottom: 1px solid #fff;
-}
-
-#request-form {
-  .form-control {
-    margin-bottom: 5px;
+#form-section {
+  background: @middle-grey;
+  h2 {
+    color: #FFF;
   }
+  #request-form {
+    .form-control {
+      margin-bottom: 5px;
+    }
 
-  #new-tweet {
+    #new-tweet {
+      text-align: left;
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      i {
+        margin-right: 5px;
+        color: #55ACEE;
+      }
+    }
+
+    input[type="submit"] {
+      margin-top: 50px;
+      margin-bottom: 15px;
+      padding-left: 40px;
+      padding-right: 40px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  #request-form > * {
+    max-width: 100%;
+  }
+}
+
+
+#thank-you-message,
+#error-message{
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+
+
+/* =======================
+* Home Page
+*/
+
+#tagline {
+  background: @light-grey;
+  padding: 25px 0;
+  font-size: 25px;
+}
+
+
+
+/* =======================
+* About Page
+*/
+
+#who-are-we {
+  text-transform: uppercase;
+  .row.member {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    h2 {
+      color: #FFF;
+    }
+  }
+  .member:nth-child(odd) {
+    background: @light-grey;
     text-align: left;
-    input[type="checkbox"] {
-      margin-right: 10px;
-    }
-    i {
-      margin-right: 5px;
-      color: #55ACEE;
-    }
   }
-
-  input[type="submit"] {
-    margin-top: 50px;
-    margin-bottom: 15px;
+  .member:nth-child(even) {
+    background: @middle-grey;
+    text-align: right;
+  }
+  .avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 20px auto;
+  }
+  .title {
+    text-transform: none;
+    font-style: italic;
+    margin-top: -10px;
   }
 }
 
-#request-form > * {
-  max-width: 100%;
-}
+
+/* =======================
+* Projects Page
+*/
 
 #bug-list {
+  background: #FFF;
   table {
     width: 100%;
     th, td {
@@ -160,24 +258,29 @@ nav#studiomofo-nav {
   }
 }
 
-#who-are-we {
-  text-transform: uppercase;
-  .avatar img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: #ccc;
-    margin: 20px auto;
+#past-projects {
+  background: @middle-grey;
+  .project {
+    .text-center;
+    .thumbnail {
+      height: 200px;
+      margin-bottom: 10px;
+      border-radius: 0;
+    }
+    .title {
+      background: #FFF;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      h4 {
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
   }
-  .title {
-    text-transform: none;
-    font-style: italic;
-    margin-top: -10px;
-  }
-}
-
-#thank-you-message,
-#error-message{
-  font-size: 20px;
-  margin-top: 50px;
 }

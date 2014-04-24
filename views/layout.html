@@ -20,8 +20,8 @@
     <div class="navbar-collapse collapse" id="studiomofo-nav-list">
       {% block navItems %}
       <ul class="nav navbar-nav">
+        <li><a href="/about">About</a></li>
         <li><a href="/projects">Projects</a></li>
-        <li><a href="/services">Services</a></li>
         <li><a href="/resources">Resources</a></li>
       </ul>
       {% endblock %}
@@ -29,17 +29,9 @@
   </nav>
 
   <main role="main">
-    {% block banner %}
-      <div class="row">
-      <header id="logo-banner" class="text-center col-md-4 col-md-offset-4">
-        <div class="circle"></div>
-        <div id="logo-text">
-          <h1>Help a <br/> Mofo Out</h1>
-          <p>DRAFT &#8226; DESIGN &#8226; DEVELOP</p>
-        </div>
-      </header>
-    </div>
+    {% block tagline %}
     {% endblock %}
+
     {% block mainContent %}
     {% endblock %}
   </main>
@@ -51,6 +43,7 @@
   <script src="bower_components/bootstrap/js/collapse.js"></script>
 
   <script src="js/ui.js"></script>
-  <script src="js/viz.js"></script>
+  {% block extraJS %}
+  {% endblock %}
 </body>
 </html>

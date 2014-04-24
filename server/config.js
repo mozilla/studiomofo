@@ -63,8 +63,8 @@ module.exports = function (env) {
     res.render("views/projects.html");
   });
 
-  app.get('/services', function(req, res){
-    res.render("views/services.html");
+  app.get('/about', function(req, res){
+    res.render("views/about.html");
   });
 
   app.get('/resources', function(req, res){

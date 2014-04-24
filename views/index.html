@@ -1,20 +1,43 @@
 {% extends "views/layout.html" %}
 
 {% block bodyOpen %}<body class="home">{% endblock %}
-{% block mainContent %}
-  <div class="big-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4 text-center">
-          <p>We help plan communications, websites, graphics, and other engagement projects for the Mozilla Foundation.</p>
-        </div>
-      </div>
+
+{% block tagline %}
+<div id="tagline">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <p>We help plan communications, websites, graphics, and other engagement projects for the Mozilla Foundation.</p>
     </div>
   </div>
+</div>
+{% endblock %}
 
-
+{% block mainContent %}
   <div id="viz-section" class="big-section">
-    <div class="row">
+    <div class="row header">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="text-center">Foundation Calendar</h2>
+        <ul>
+          <li>
+            <span class="tier-number">Tier 1:</span>
+            Tier 1 Tier 1 Tier 1 Tier 1 Tier 1
+          </li>
+          <li>
+            <span class="tier-number">Tier 2:</span>
+            Tier 2 Tier 2 Tier 2 Tier 2 Tier 2
+          </li>
+          <li>
+            <span class="tier-number">Tier 3:</span>
+            Tier 3 Tier 3 Tier 3 Tier 3 Tier 3
+          </li>
+          <li>
+            <span class="tier-number">Tier 4:</span>
+            Tier 4 Tier 4 Tier 4 Tier 4 Tier 4
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row" id="viz">
       <div id="left-container">
         <div id="description-box">
           <header id="event-title"></header>
@@ -51,8 +74,9 @@
   <div id="form-section" class="big-section">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-md-offset-4 text-center">
-          <p>Tell us what you need.</p>
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h2>Service Request</h2>
+          <h3>Tell us what you need.</h3>
           <form id="request-form" action="/requestForm" method="post" role="form">
             <label for="requester-name" class="hidden">Your Name</label>
             <input id="requester-name" class="form-control" type="text" maxlength="50" size="100" name="name" placeholder="What's your name?" required />
@@ -75,4 +99,9 @@
     </div>
   </div>
 
+{% endblock %}
+
+
+{% block extraJS %}
+<script src="js/viz.js"></script>
 {% endblock %}

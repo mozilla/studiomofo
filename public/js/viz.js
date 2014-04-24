@@ -134,7 +134,7 @@ function drawHeader() {
   headerHtml += "<th class='event-name'></th>";
   // insert to DOM
   viz.find("thead").before("<colgroup>"+ colGroupHtml + "</colgroup>")
-                   .append("<tr>"+ headerHtml + "</tr>");
+                   .prepend("<tr>"+ headerHtml + "</tr>");
 }
 
 
@@ -163,6 +163,7 @@ function drawRow(theEvent, tier) {
 function addVizEventHandler() {
   // show Event description
   viz.find("tbody").find(".dot, .event-name").click(showDetails);
+  viz.find("tbody").find("tr").hover(highlightRow);
 }
 
 function addTierEventHandler() {
@@ -217,6 +218,13 @@ function showDetails(event) {
     $(this).html(newContent);
   }).fadeIn(800);
 }
+
+function highlightRow(event) {
+  console.log("hi");
+  $(event.target).parents("tr").toggleClass("row-hover");
+  $(event.target).parents("tr").find("*:not(.dot)").toggleClass("row-hover");
+}
+
 
 // Toggle Tier click handler
 function toggleTier(event) {

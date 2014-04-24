@@ -1,5 +1,5 @@
 @month-col-width: 60px;
-@month-col-bg: #ECF4F5;
+@viz-bg: #ECF4F5;
 @row-height: 18px;
 @dark-grey: #494F5B;
 
@@ -8,14 +8,17 @@
 @tier-3: #A4C9DF;
 @tier-4: #C7DAEE;
 
+@arc-odd: #7EBDBD;
+@arc-even: #52A1A2;
+
+@row-hover: #99DDDE;
+
 /* Viz section ================= */
 
 #viz-section {
   font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 300;
   padding-bottom: 50px;
-  background: #009984;
-  color: #FFF;
 
   .header {
     background: #FFF;
@@ -101,21 +104,6 @@
 
   /* Viz ============================= */
 
-  #calendar-viz {
-    border-collapse: collapse;
-    tr {
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      height: @row-height;
-    }
-    th {
-      font-weight: normal;
-    }
-    th, td {
-      text-align: center;
-    }
-  }
-
   #calendar-viz-tier {
     div:hover {
       cursor: pointer;
@@ -123,50 +111,79 @@
     .tier-header {
       .text-center;
       width: 20px;
-      color: #009984;
-      background: #FFF;
-      border-bottom: 1px solid #009984;
+      color: #FFF;
+      border-bottom: 2px solid #FFF;
       font-weight: bold;
+    }
+    .tier-header[data-tier='1'] {
+      background: @tier-1;
+    }
+    .tier-header[data-tier='2'] {
+      background: @tier-2;
+    }
+    .tier-header[data-tier='3'] {
+      background: @tier-3;
+    }
+    .tier-header[data-tier='4'] {
+      background: @tier-4;
     }
   }
 
   #calendar-viz {
     position: relative;
     top: -@row-height;
+    border-collapse: collapse;
     thead {
+      text-transform: uppercase;
       .arc {
         .text-center;
         float: left;
+        color: #FFF;
       }
       #mozilla-arc{
         width: @month-col-width;
-        background: #BADB81;
+        background: @arc-odd;
       }
       #privacy-arc-1 {
         width: @month-col-width;
-        background: #7FBF0F;
+        background: @arc-even;
       }
       #education-arc {
         width: @month-col-width * 6.5;
-        background: #BADB81;
+        background: @arc-odd;
       }
       #privacy-arc-2 {
         width: @month-col-width * 2;
-        background: #7FBF0F;
+        background: @arc-even;
       }
       #eoy-arc {
         width: @month-col-width * 1.5;
-        background: #BADB81;
+        background: @arc-odd;
       }
     }
+    tr {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: @row-height;
+    }
     tbody tr:hover {
-      background: #3EAF83;
+      background: @row-hover;
     }
     tr.tier-divider {
-      border-bottom: 1px dashed #016658;
+      border-bottom: 2px dashed #FFF;
+    }
+    .row-hover {
+      background: @row-hover !important;
+    }
+    th {
+      font-weight: normal;
+    }
+    th, td {
+      text-align: center;
     }
     td.month {
       width: @month-col-width;
+      background: @viz-bg;
     }
     tbody tr.selected {
       background: rgba(255,255,255,0.2);
@@ -176,12 +193,40 @@
       text-align: left;
       padding-left: 15px;
     }
+    tbody {
+      tr[data-tier='1'] {
+        color: @tier-1;
+      }
+      tr[data-tier='2'] {
+        color: @tier-2;
+      }
+      tr[data-tier='3'] {
+        color: @tier-3;
+      }
+      tr[data-tier='4'] {
+        color: @tier-4;
+      }
+    }
     tbody td.marked .dot {
-      background: #F9F281;
       border-radius: 50%;
       width: 12px;
       height: 12px;
       margin: 0 auto;
+    }
+    tbody td {
+      border-right: 2px solid #FFF;
+    }
+    tbody tr[data-tier='1'] td.marked .dot {
+      background: @tier-1;
+    }
+    tbody tr[data-tier='2'] td.marked .dot {
+      background: @tier-2;
+    }
+    tbody tr[data-tier='3'] td.marked .dot {
+      background: @tier-3;
+    }
+    tbody tr[data-tier='4'] td.marked .dot {
+      background: @tier-4;
     }
     tbody td.event-name:hover,
     tbody td.marked .dot:hover {
@@ -193,18 +238,15 @@
   /* Description box ============================= */
 
   #description-box {
-    border: 1px solid #FFF;
-    background: rgba(255,255,255,0.2);
-    padding: 10px 15px;
+    padding: 0 15px;
     min-height: 200px;
     margin-top: @row-height;
     margin-left: 20px;
     margin-right: 20px;
-  }
-
-  #description-box header {
-    font-size: 25px;
-    margin-bottom: 15px;
+    h4 {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
   }
 
   #event-details {

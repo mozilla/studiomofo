@@ -25,3 +25,7 @@ $.ajax({
     }
   }
 });
+
+$("#request-need-tweet").click(function(event){
+  $("#request-tweet").toggleClass("hidden");
+});

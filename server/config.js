@@ -79,22 +79,29 @@ module.exports = function (env) {
   function sendRequest(req, res, requestCount, onStaging){
     console.log("======= requestForm ========");
     requestCount++; // new request, increase counter by 1
-
     var name = req.body.name;
     var team = req.body.team;
     var deadline = req.body.deadline;
     var summary = req.body.summary;
+    var needTweet = (req.body.needTweet != null);
+    var tweet = req.body.tweet;
     var subjectPrefix = onStaging ? "(test on staging) " : "";
     var mailOptions = {
-        from: "request@studiomofo.org <request@studiomofo.org>",
-        to: "Studio MoFo <studiomofo@mozillafoundation.org>",
+        from: process.env.REQEUST_FROM_EMAIL,
+        from: process.env.REQEUST_FROM_EMAIL,
+        to: process.env.REQEUST_TO_EMAIL,
         subject: subjectPrefix + "[ Request Form ] #" + requestCount + ", from " + name,
         generateTextFromHTML: true,
-        html: "<b>Requester:</b> " + name + "<br /> "
-            + "<b>Team: </b>" + team + "<br />"
-            + "<b>Deadline: </b>" + deadline + "<br />"
-            + "<b>Summary: </b>" + summary
+        html:   "<b>Requester:</b> " + name + "<br> "
+              + "<b>Team: </b>" + team + "<br>"
+              + "<b>Deadline: </b>" + deadline + "<br>"
+              + "<b>Summary: </b>" + summary
     };
+    if ( needTweet ) {
+      mailOptions.to = process.env.REQEUST_TWEET_TO_EMAIL;
+      mailOptions.cc = process.env.REQEUST_TWEET_CC_EMAIL;
+      mailOptions.html += "<br><b>Need Tweet: </b>" + tweet;
+    }
 
     sesTransport.sendMail(mailOptions, function(error, response){
         if(error){

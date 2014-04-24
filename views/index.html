@@ -27,8 +27,10 @@
             <label for="request-summary" class="hidden">Summary</label>
             <textarea id="request-summary" class="form-control" name="summary" cols="100" rows="5" maxlength="140" placeholder="Briefly describe how we can help you (140 characters or less)" required></textarea>
             <div id="new-tweet">
-              <input type="checkbox" /><i class="fa fa-twitter"></i>Does this need a tweet from <a href="https://twitter.com/mozilla">@Mozilla</a>?
+              <input id="request-need-tweet" type="checkbox" name="needTweet" /><i class="fa fa-twitter"></i>Does this need a tweet from <a href="https://twitter.com/mozilla">@Mozilla</a>?
             </div>
+            <label for="request-tweet" class="hidden">Tweet</label>
+            <textarea id="request-tweet" class="form-control hidden" type="text" name="tweet" cols="100" rows="5" maxlength="140" placeholder="Tweet (140 characters or less)"></textarea>
             <input type="submit" value="Submit" class="btn btn-default" />
           </form>
           <p>Questions? Email us anytime at <a href="mailto:studiomofo@mozillafoundation.org">studiomofo@mozillafoundation.org</a></p>

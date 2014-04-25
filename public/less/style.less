@@ -22,6 +22,8 @@
 @middle-grey: #7996A9;
 @dark-grey: #494F5B;
 
+@light-link: #B3D9F2;
+
 
 body{
   background: #FFF;
@@ -181,8 +183,9 @@ nav#studiomofo-nav {
 
 #form-section {
   background: @middle-grey;
+  color: #FFF;
   a {
-    color: #ECF4F5;
+    color: @light-link;
   }
   .header {
     background: transparent;
@@ -242,14 +245,16 @@ nav#studiomofo-nav {
 }
 
 #who-are-we {
-  text-transform: uppercase;
-  .row.member {
+  .member .row {
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 30px;
     padding-bottom: 30px;
+    .name {
+      text-transform: uppercase;
+    }
     h1 {
-      color: #FFF;
+      margin-top: 0;
     }
   }
   .member {
@@ -260,6 +265,16 @@ nav#studiomofo-nav {
   }
   .member:nth-child(even) {
     background: @middle-grey;
+    color: #FFF;
+    a {
+      color: @light-link;
+    }
+  }
+  .intro.row {
+    padding-bottom: 10px;
+  }
+  .favourite.row {
+    padding-top: 0;
   }
   .avatar img {
     width: 120px;

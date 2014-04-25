@@ -26,41 +26,53 @@
 body{
   background: #FFF;
   color: @dark-grey;
-  font-family: "Open Sans Light";
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 footer {
-  height: 100px;
   background: @dark-grey;
+  color: #FFF;
+  img {
+    max-height: 50px;
+  }
+  #note {
+    .text-right;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 50px;
+    i {
+      color: @dark-red;
+    }
+  }
 }
 
-h2 {
+h1 {
+  font-family: "Open Sans Condensed";
   text-transform: uppercase;
   font-weight: bold;
   font-size: 42px;
 }
 
+h2 {
+  font-family: "Open Sans Condensed";
+}
+
 nav#studiomofo-nav {
   padding: 20px;
-  font-size: 20px;
+  font-size: 24px;
   color: #888;
   background: #FFF;
   text-transform: uppercase;
   font-weight: bold;
   #logo {
     float: left;
-    padding-top: 5px;
+    font-family: "Montserrat";
     i {
       margin-right: 5px;
       color: @dark-red;
     }
     a {
-      font-size: 24px;
       color: inherit;
-    }
-    a::after {
-      content: ".";
-      color: @dark-red;
     }
     a:hover {
       color: inherit;
@@ -69,6 +81,18 @@ nav#studiomofo-nav {
   }
   #studiomofo-nav-list {
     float: right;
+    padding-top: 7px;
+    ul {
+      font-family: "Open Sans Condensed";
+      color: #999;
+      li.active {
+        a {
+          color: @dark-grey;
+          background: none;
+          border-bottom: @light-blue 3px solid;
+        }
+      }
+    }
   }
   #studiomofo-nav-list.in {
     float: none;
@@ -78,8 +102,15 @@ nav#studiomofo-nav {
 .navbar {
   margin-bottom: 0;
 }
+
 .navbar-default {
   border: none;
+}
+
+.navbar-nav > li > a {
+  padding: 0 0 5px 0;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .row{
@@ -150,6 +181,9 @@ nav#studiomofo-nav {
 
 #form-section {
   background: @middle-grey;
+  a {
+    color: #ECF4F5;
+  }
   .header {
     background: transparent;
     color: #FFF;
@@ -197,6 +231,16 @@ nav#studiomofo-nav {
 * About Page
 */
 
+#how-we-work {
+  i.fa {
+    font-size: 20px;
+  }
+}
+
+#who-are-we.big-section {
+  padding-bottom: 0;
+}
+
 #who-are-we {
   text-transform: uppercase;
   .row.member {
@@ -204,7 +248,7 @@ nav#studiomofo-nav {
     margin-bottom: 0;
     padding-top: 30px;
     padding-bottom: 30px;
-    h2 {
+    h1 {
       color: #FFF;
     }
   }
@@ -260,14 +304,20 @@ nav#studiomofo-nav {
   }
 }
 
-#past-projects {
+#portfolio {
   background: @middle-grey;
   .project {
     .text-center;
+    a {
+      display: block;
+    }
     .thumbnail {
-      height: 200px;
       margin-bottom: 10px;
       border-radius: 0;
+      border: none;
+      img {
+        width: 100%;
+      }
     }
     .title {
       background: #FFF;
@@ -285,4 +335,17 @@ nav#studiomofo-nav {
       }
     }
   }
+}
+
+
+
+/* =======================
+* Resources Page
+*/
+
+#resources-section {
+  i {
+    font-size: 20px;
+  }
+  padding-bottom: 300px;
 }

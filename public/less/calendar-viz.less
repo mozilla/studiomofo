@@ -1,12 +1,14 @@
 @month-col-width: 60px;
 @viz-bg: #ECF4F5;
 @row-height: 18px;
+@tier-border-width: 2px;
+
 @dark-grey: #494F5B;
 
-@tier-1: #3F83BB;
-@tier-2: #76ADD4;
-@tier-3: #A4C9DF;
-@tier-4: #C7DAEE;
+@tier-1: #31648F;
+@tier-2: #327BB8;
+@tier-3: #60A2D1;
+@tier-4: #92BCD6;
 
 @arc-odd: #7EBDBD;
 @arc-even: #52A1A2;
@@ -46,7 +48,8 @@
   }
 
   #viz {
-    padding-top: 50px;
+    margin-top: 0;
+    padding-top: 20px;
     padding-bottom: 30px;
     font-size: 12px;
   }
@@ -65,7 +68,7 @@
       width: 5%;
       width: ~"calc(20px - 0px)";
       position: relative;
-      top: @row-height;
+      top: calc( @row-height + @tier-border-width);
     }
 
     #calendar-viz {
@@ -110,9 +113,11 @@
     }
     .tier-header {
       .text-center;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
       width: 20px;
       color: #FFF;
-      border-bottom: 2px solid #FFF;
+      border-bottom: @tier-border-width solid #FFF;
       font-weight: bold;
     }
     .tier-header[data-tier='1'] {
@@ -170,7 +175,7 @@
       background: @row-hover;
     }
     tr.tier-divider {
-      border-bottom: 2px dashed #FFF;
+      border-bottom: @tier-border-width dashed #FFF;
     }
     .row-hover {
       background: @row-hover !important;

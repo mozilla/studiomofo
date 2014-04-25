@@ -25,33 +25,35 @@
   .header {
     background: #FFF;
     color: @dark-grey;
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      .tier-number {
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-      .tier-1 {
-        color: @tier-1;
-      }
-      .tier-2 {
-        color: @tier-2;
-      }
-      .tier-3 {
-        color: @tier-3;
-      }
-      .tier-4 {
-        color: @tier-4;
-      }
-    }
   }
 
   #viz {
     margin-top: 0;
+    margin-bottom: 0;
     padding-top: 20px;
     padding-bottom: 30px;
     font-size: 12px;
+  }
+
+  ul#tier-description {
+    list-style-type: none;
+    padding-left: 0;
+    .tier-number {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .tier-1 {
+      color: @tier-1;
+    }
+    .tier-2 {
+      color: @tier-2;
+    }
+    .tier-3 {
+      color: @tier-3;
+    }
+    .tier-4 {
+      color: @tier-4;
+    }
   }
 
   #left-container {

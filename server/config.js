@@ -4,7 +4,6 @@ module.exports = function (env) {
   var path = require('path');
   var app = express();
   var nunjucksEnv = new nunjucks.Environment( new nunjucks.FileSystemLoader( "./public"));
-  var defaultLang = 'en-US';
   var appVersion = require('../package').version;
   // ===
   var http = require("http");

@@ -44,9 +44,15 @@
     font-size: 12px;
   }
 
+  .centered-container {
+    display: table;
+    margin: 0 auto;
+  }
+
   #left-container {
     float: left;
-    width: 25%;
+    width: 300px;
+    margin-bottom: 20px;
   }
 
   #right-container {
@@ -57,7 +63,7 @@
       width: 5%;
       width: ~"calc(20px - 0px)";
       position: relative;
-      top: calc( @row-height + @tier-border-width);
+      top: calc( 2* @row-height + @tier-border-width);
     }
 
     #calendar-viz {
@@ -71,7 +77,11 @@
     #left-container {
       float: left;
       width: 100%;
-      margin-bottom: 50px;
+      #description-box {
+        .desktop-instruction {
+          display: none;
+        }
+      }
     }
 
     #right-container {
@@ -125,7 +135,6 @@
 
   #calendar-viz {
     position: relative;
-    top: -@row-height;
     border-collapse: collapse;
     thead {
       text-transform: uppercase;

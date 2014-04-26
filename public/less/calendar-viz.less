@@ -31,6 +31,11 @@
     color: @dark-grey;
   }
 
+  #viz.row {
+    margin-left: 0;
+    margin-right: 0; /* remove the preset margin since this is full width row */
+  }
+
   #viz {
     margin-top: 0;
     margin-bottom: 0;
@@ -42,12 +47,10 @@
   #left-container {
     float: left;
     width: 25%;
-    padding: 0 15px;
   }
 
   #right-container {
     float: left;
-    width: 75%;
 
     #calendar-viz-tier {
       float: left;

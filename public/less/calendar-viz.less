@@ -1,3 +1,7 @@
+// Colours
+@import "colours";
+
+
 @month-col-width: 60px;
 @viz-bg: #ECF4F5;
 @row-height: 18px;
@@ -35,30 +39,10 @@
     font-size: 12px;
   }
 
-  ul#tier-description {
-    list-style-type: none;
-    padding-left: 0;
-    .tier-number {
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .tier-1 {
-      color: @tier-1;
-    }
-    .tier-2 {
-      color: @tier-2;
-    }
-    .tier-3 {
-      color: @tier-3;
-    }
-    .tier-4 {
-      color: @tier-4;
-    }
-  }
-
   #left-container {
     float: left;
     width: 25%;
+    padding: 0 15px;
   }
 
   #right-container {
@@ -252,11 +236,11 @@
   /* Description box ============================= */
 
   #description-box {
-    padding: 0 15px;
-    min-height: 200px;
     margin-top: @row-height;
     margin-left: 20px;
     margin-right: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid @body-blue;
     h4 {
       font-size: 25px;
       margin-bottom: 15px;
@@ -281,5 +265,31 @@
   #event-details .desc-label::after {
     content: ":";
   };
+
+  #tier-description {
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+      .tier-number {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .tier-1 {
+        color: @tier-1;
+      }
+      .tier-2 {
+        color: @tier-2;
+      }
+      .tier-3 {
+        color: @tier-3;
+      }
+      .tier-4 {
+        color: @tier-4;
+      }
+    }
+  }
 
 }

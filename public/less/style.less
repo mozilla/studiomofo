@@ -8,21 +8,25 @@
 // Other Fonts
 @import "font";
 
+// Colours
+@import "colours";
+
 // Calendar Viz stylesheet
 @import "calendar-viz";
 
+/*@body-blue: #E8F3F8;
 
-@body-blue: #E8F3F8;
-
-@dark-blue: #67C1C0;
-@light-blue: #83E2E1;
+@dark-green: #67C1C0;
+@light-green: #83E2E1;
 @dark-red: #EC515B;
 @light-red: #F4969C;
-@light-grey: #F5F3F4;
+@lightest-grey: #F5F3F4;
+@light-grey: #999;
 @middle-grey: #7996A9;
 @dark-grey: #494F5B;
 
-@light-link: #B3D9F2;
+
+@light-link: #B3D9F2;*/
 
 
 body{
@@ -59,16 +63,27 @@ h2 {
   font-family: "Open Sans Condensed";
 }
 
+a {
+  color: @dark-green;
+}
+
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 nav#studiomofo-nav {
   padding: 20px;
   font-size: 24px;
-  color: #888;
+  color: @lightest-grey;
   background: #FFF;
   text-transform: uppercase;
   font-weight: bold;
+  box-shadow: 1px 1px 5px rgba(153,153,153,0.3);
   #logo {
     float: left;
     font-family: "Montserrat";
+    color: @dark-grey;
     i {
       margin-right: 5px;
       color: @dark-red;
@@ -86,12 +101,12 @@ nav#studiomofo-nav {
     padding-top: 7px;
     ul {
       font-family: "Open Sans Condensed";
-      color: #999;
+      color: @lightest-grey;
       li.active {
         a {
           color: @dark-grey;
           background: none;
-          border-bottom: @light-blue 3px solid;
+          border-bottom: @light-green 3px solid;
         }
       }
     }
@@ -115,10 +130,6 @@ nav#studiomofo-nav {
   margin-right: 10px;
 }
 
-.row{
-  margin: 35px 0;
-}
-
 .big-section {
   h5 {
     text-transform: uppercase;
@@ -130,10 +141,16 @@ nav#studiomofo-nav {
 
 .big-section .header {
   background: #FFF;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 22px;
+  padding-bottom: 12px;
   margin-top: 0;
   margin-bottom: 0;
+  h1 {
+    margin-bottom: 7px;
+  }
+  h2 {
+    margin-top: 0;
+  }
 }
 
 .big-section-divider {
@@ -176,9 +193,11 @@ nav#studiomofo-nav {
 */
 
 #tagline {
-  background: @light-grey;
+  background: @lightest-grey;
   padding: 25px 0;
   font-size: 32px;
+  font-weight: 300;
+  color: @light-grey;
 }
 
 #form-section {
@@ -261,7 +280,7 @@ nav#studiomofo-nav {
     .text-center;
   }
   .member:nth-child(odd) {
-    background: @light-grey;
+    background: @lightest-grey;
   }
   .member:nth-child(even) {
     background: @middle-grey;
@@ -323,13 +342,15 @@ nav#studiomofo-nav {
   background: @middle-grey;
   .project {
     .text-center;
+    margin-bottom: 30px;
     a {
       display: block;
     }
     .thumbnail {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       border-radius: 0;
       border: none;
+      background: @lightest-grey;
       img {
         width: 100%;
       }

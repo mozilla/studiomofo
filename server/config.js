@@ -117,11 +117,11 @@ module.exports = function (env) {
     sesTransport.sendMail(mailOptions, function(error, response){
         if(error){
             console.log(error);
-            res.render("views/error");
+            res.render("views/error.html");
         }else{
             console.log("Message sent: " + response.message);
             setRequestCounter(requestCount);
-            res.render("views/thankyou", { theName: name});
+            res.render("views/thankyou.html", { theName: name});
         }
     });
   }

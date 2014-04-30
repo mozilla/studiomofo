@@ -43,15 +43,18 @@ module.exports = function (env) {
   // Static files
   app.use(express.static('./public'));
 
-  // Healthcheck
-  app.get('/healthcheck', function (req, res) {
-    res.json(healthcheck);
-  });
-
   // Serve up virtual configuration "file"
   app.get('/config.js', function (req, res) {
     res.setHeader('Content-type', 'text/javascript');
     res.send('window.eventsConfig = ' + JSON.stringify(config));
+  });
+
+  // Healthcheck
+  app.get('/healthcheck', function (req, res) {
+    getRequestCounter(function(requestCount){
+      healthcheck.counter = requestCount;
+      res.json(healthcheck);
+    });
   });
 
   app.get('/', function(req, res){
@@ -68,13 +71,6 @@ module.exports = function (env) {
 
   app.get('/resources', function(req, res){
     res.render("views/resources.html");
-  });
-
-  app.get('/healthcheck', function(req, res) {
-    res.json({
-      http: "okay",
-      version: version
-    });
   });
 
   app.post("/requestForm", function(req, res){

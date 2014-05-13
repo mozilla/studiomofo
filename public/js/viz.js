@@ -56,11 +56,11 @@ function VizEvent(gEvent) {
 
 $.ajax({
   url: sourceUrl,
-  jsonpCallback: 'jsonCallback',
+  jsonpCallback: "jsonCallback",
   contentType: "application/json",
-  dataType: 'jsonp',
+  dataType: "jsonp",
   error: function(jqXHR, textStatus, errorThrown) {
-    console.log("Fail to load Google spreadsheet data...");
+    console.log("Failed to load Google spreadsheet data...");
     console.log(jqXHR);
   },
   success: function(data) {
@@ -69,7 +69,7 @@ $.ajax({
     mapGData(spreadsheetData);
   },
   complete: function() {
-    console.log("Finish loading spreadsheet data!");
+    console.log("Finished loading spreadsheet data!");
   }
 });
 
@@ -220,7 +220,6 @@ function showDetails(event) {
 }
 
 function highlightRow(event) {
-  console.log("hi");
   $(event.target).parents("tr").toggleClass("row-hover");
   $(event.target).parents("tr").find("*:not(.dot)").toggleClass("row-hover");
 }

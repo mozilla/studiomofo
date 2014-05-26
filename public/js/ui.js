@@ -18,8 +18,9 @@ if ( $("body").hasClass("projects") ){
     data: {
       bug_status: "NEW ASSIGNED",
       bug_status_type: "contains_any",
-      whiteboard_type: "contains",
-      whiteboard: "studiomofo"
+      whiteboard_type: "allwordssubstr",
+      whiteboard: "studiomofo",
+      whiteboard: "studio mofo"
     },
     contentType: "application/json",
     error: function(jqXHR, textStatus){
@@ -27,7 +28,8 @@ if ( $("body").hasClass("projects") ){
       console.log(textStatus);
     },
     success: function(data){
-      console.log("Successfully loaded bug list.");
+      console.log("Successfully loaded bug list.  Total open tickets: "+ data.bugs.length);
+      $("#loading-buzilla").addClass("hidden");
       for ( var i=0; i<data.bugs.length; i++){
         var bug = data.bugs[i];
         $("#bug-list table").find("tbody").append(

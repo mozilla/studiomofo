@@ -95,7 +95,6 @@ module.exports = function (env) {
     var subjectPrefix = onStaging ? "(test on staging) " : "";
     var mailOptions = {
         from: process.env.REQEUST_FROM_EMAIL,
-        from: process.env.REQEUST_FROM_EMAIL,
         to: process.env.REQEUST_TO_EMAIL,
         subject: subjectPrefix + "[ Request Form ] #" + requestCount + ", from " + name,
         generateTextFromHTML: true,
@@ -105,14 +104,13 @@ module.exports = function (env) {
               + "<b>Summary: </b>" + summary
     };
     if ( needTweet ) {
-      mailOptions.to = process.env.REQEUST_TWEET_TO_EMAIL;
-      mailOptions.cc = process.env.REQEUST_TWEET_CC_EMAIL;
       mailOptions.html += "<br><b>Need Tweet: </b>" + tweet;
     }
 
     sesTransport.sendMail(mailOptions, function(error, response){
         if(error){
             console.log(error);
+            console.log(mailOptions)
             res.render("views/error.html");
         }else{
             console.log("Message sent: " + response.message);

@@ -19,6 +19,22 @@ module.exports = function (env) {
   var app = express();
   // using a simple text file to store counter
   var counterFile = "counter.txt";
+  // Helmet for security headers and features
+  var helmet = require('helmet');
+
+  // Set up security header options based on .env settings
+  if (process.env.HSTS_DISABLED != 'true') {
+    // Use HSTS
+    app.use(helmet.hsts());
+  }
+  if (process.env.DISABLE_XFO_HEADERS_DENY != 'true') {
+    // No xframes allowed
+    app.use(helmet.xframe('deny'));
+  }
+  if (process.env.IEXSS_PROTECTION_DISABLED != 'true') {
+  // Use XSS protection
+    app.use(helmet.iexss());
+  }
 
   app.use(express.logger('dev'));
   app.use(express.compress());

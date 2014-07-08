@@ -1,6 +1,6 @@
 {
   "name": "studiomofo",
-  "version": "2.0.10",
+  "version": "2.1.1",
   "description": "Help a MoFo out",
   "scripts": {
     "postinstall": "bower install; grunt heroku"

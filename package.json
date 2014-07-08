@@ -22,6 +22,7 @@
     "grunt-contrib-watch": "0.5.3",
     "grunt-shell-spawn": "0.3.0",
     "grunt-cli": "0.1.13",
+    "helmet": "0.2.1",
     "nunjucks": "0.1.10"
   },
   "engines": {

@@ -26,7 +26,7 @@ var detailFields = [
 ];
 
 
-var sourceUrl = "http://spreadsheets.google.com/feeds/list/1M8L-O9UQC0CbRMbKtTsfyYKBqJZekkpbA9VE8CQ20cY/od6/public/values?alt=json";
+var sourceUrl = "http://spreadsheets.google.com/feeds/list/1_d7X39xt169n8ST25OwO_BKMYIWm1rB5ywQ8Tb0iGKc/od6/public/values?alt=json";
 var spreadsheetData = {};
 var vizAllEvents = [];
 var vizEventsByTier = {

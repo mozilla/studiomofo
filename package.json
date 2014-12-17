@@ -1,13 +1,13 @@
 {
   "name": "studiomofo",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Help a MoFo out",
   "scripts": {
     "postinstall": "bower install; grunt heroku"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/mozilla/studiomofo.git"
+    "type": "git",
+    "url": "https://github.com/mozilla/studiomofo.git"
   },
   "dependencies": {
     "express": "3.4.8",
